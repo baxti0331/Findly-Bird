@@ -8,7 +8,6 @@ const historyList = document.getElementById('historyList');
 
 let history = [];
 
-// Безопасный вывод текста
 function escapeHtml(text) {
   return text.replace(/[&<>"']/g, (m) => ({
     '&': '&amp;',
@@ -19,7 +18,6 @@ function escapeHtml(text) {
   })[m]);
 }
 
-// Загрузка истории из localStorage
 function loadHistory() {
   const stored = localStorage.getItem('taxiOrderHistory');
   if (stored) {
@@ -31,12 +29,10 @@ function loadHistory() {
   }
 }
 
-// Сохранение истории в localStorage
 function saveHistory() {
   localStorage.setItem('taxiOrderHistory', JSON.stringify(history));
 }
 
-// Отрисовка истории на странице
 function renderHistory() {
   if (history.length === 0) {
     historySection.classList.remove('show');
@@ -62,7 +58,7 @@ function renderHistory() {
         pickupInput.value = history[idx].pickup;
         deliveryInput.value = history[idx].delivery;
         passengersInput.value = history[idx].passengers;
-        message.textContent = 'Данные заказа подставлены. Можно повторить заказ.';
+        message.textContent = 'Данные заказа подставлены.';
         message.className = 'success';
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
@@ -70,28 +66,26 @@ function renderHistory() {
   });
 }
 
-// Отправка заказа через fetch (пример отправки в телеграм-бота)
 async function sendOrder(pickup, delivery, passengers) {
-  const url = 'https://t.me/piar_group_chatt'; // Твой URL куда отправлять
-  const body = {
-    pickup,
-    delivery,
-    passengers,
-  };
+  const botToken = '7563958637:AAFYZAnO9GnqrV6mDxdzQS8qU3N020KUVlU'; // сюда вставляешь свой токен
+  const chatId = '@piar_group_chatt'; // сюда вставляешь ID чата или группы
 
-  try {
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(body),
-    });
-    if (!response.ok) throw new Error(`Ошибка сети: ${response.status}`);
-    return await response.json();
-  } catch (error) {
-    throw error;
-  }
+  const text = `🚖 Новый заказ такси:\n\n🗺 Отправление: ${pickup}\n🏁 Доставка: ${delivery}\n👥 Пассажиров: ${passengers}`;
+
+  const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      chat_id: chatId,
+      text: text,
+      parse_mode: 'HTML'
+    }),
+  });
+
+  if (!response.ok) throw new Error(`Ошибка отправки: ${response.status}`);
+  return await response.json();
 }
 
 orderBtn.addEventListener('click', async () => {
@@ -100,37 +94,36 @@ orderBtn.addEventListener('click', async () => {
   const passengers = passengersInput.value.trim();
 
   if (!pickup || !delivery || !passengers || isNaN(passengers) || Number(passengers) < 1) {
-    message.textContent = 'Пожалуйста, заполните все поля корректно.';
+    message.textContent = 'Заполните все поля корректно.';
     message.className = 'error';
     return;
   }
 
   orderBtn.disabled = true;
-  message.textContent = 'Отправка заказа...';
+  message.textContent = 'Отправка...';
   message.className = '';
 
   try {
     await sendOrder(pickup, delivery, Number(passengers));
-    // Сохраняем заказ в историю
+
     history.unshift({ pickup, delivery, passengers: Number(passengers) });
     if (history.length > 10) history.pop();
     saveHistory();
     renderHistory();
 
-    message.textContent = 'Заказ успешно отправлен! Спасибо.';
+    message.textContent = 'Заказ отправлен!';
     message.className = 'success';
 
     pickupInput.value = '';
     deliveryInput.value = '';
     passengersInput.value = '';
   } catch (error) {
-    message.textContent = 'Ошибка при отправке заказа: ' + error.message;
+    message.textContent = 'Ошибка отправки: ' + error.message;
     message.className = 'error';
   } finally {
     orderBtn.disabled = false;
   }
 });
 
-// Инициализация
 loadHistory();
 renderHistory();
