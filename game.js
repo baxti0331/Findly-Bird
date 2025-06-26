@@ -1,8 +1,8 @@
 const { Telegraf, Markup, session } = require('telegraf');
 
 // === Настройки ===
-const BOT_TOKEN = 'ВАШ_ТОКЕН_БОТА';
-const CHANNEL_ID = '@ваш_канал_или_ID_группы'; // например, '@mytaxichannel' или -1001234567890
+const BOT_TOKEN = '8133373573:AAEXj8mS0CNSiFc1v4qMcH8lYdvwUNR1eVA';
+const CHANNEL_ID = '@piar_group_chatt'; // например, '@mytaxichannel' или -1001234567890
 
 const bot = new Telegraf(BOT_TOKEN);
 
