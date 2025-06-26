@@ -1,107 +1,166 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Заказ Такси</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #FFD700, #FFA500);
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-    }
-    h1 {
-      color: #fff;
-      margin-bottom: 20px;
-      text-shadow: 1px 1px 2px #000;
-    }
-    .form-group {
-      margin: 10px 0;
-      width: 80%;
-    }
-    label {
-      display: block;
-      margin-bottom: 5px;
-      color: #fff;
-    }
-    input, select {
-      width: 100%;
-      padding: 10px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-    }
-    button {
-      margin-top: 20px;
-      background-color: #000;
-      color: #FFD700;
-      padding: 12px 25px;
-      border: none;
-      border-radius: 8px;
-      font-size: 18px;
-      cursor: pointer;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-      transition: background 0.3s;
-    }
-    button:hover {
-      background-color: #333;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Заказ Такси</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+  body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #f9d423 0%, #ff4e50 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .container {
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px 35px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow:
+      0 10px 25px rgba(255, 148, 33, 0.3),
+      0 5px 10px rgba(255, 148, 33, 0.2);
+    text-align: center;
+  }
+
+  h1 {
+    margin-bottom: 30px;
+    color: #ff4e50;
+    font-weight: 600;
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+  }
+
+  input {
+    width: 100%;
+    padding: 14px 18px;
+    margin-bottom: 18px;
+    font-size: 1rem;
+    border-radius: 12px;
+    border: 2px solid #ffd54f;
+    box-shadow: inset 0 2px 5px rgba(255, 213, 79, 0.25);
+    transition: border-color 0.3s, box-shadow 0.3s;
+    outline: none;
+  }
+  input:focus {
+    border-color: #ff6b4a;
+    box-shadow: 0 0 8px rgba(255, 107, 74, 0.6);
+  }
+
+  .btn {
+    background: linear-gradient(135deg, #ffb347 0%, #ffcc33 100%);
+    border: none;
+    padding: 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 16px;
+    width: 100%;
+    color: #3a1a00;
+    cursor: pointer;
+    box-shadow:
+      0 8px 15px rgba(255, 179, 71, 0.4);
+    transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+  }
+  .btn:hover {
+    background: linear-gradient(135deg, #ffcc33 0%, #ffb347 100%);
+    box-shadow:
+      0 12px 20px rgba(255, 204, 51, 0.6);
+    transform: translateY(-3px);
+  }
+  .btn:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 10px rgba(255, 179, 71, 0.3);
+  }
+
+  #message {
+    margin-top: 18px;
+    font-weight: 600;
+    min-height: 24px;
+    user-select: none;
+  }
+  .success {
+    color: #388e3c;
+  }
+  .error {
+    color: #d32f2f;
+  }
+
+</style>
 </head>
 <body>
 
-<h1>🚕 Заказ Такси</h1>
-
-<div class="form-group">
-  <label for="destination">Куда ехать:</label>
-  <input type="text" id="destination" placeholder="Введите адрес">
+<div class="container">
+  <h1>🚖 Заказ Такси</h1>
+  <input type="text" id="pickup" placeholder="Адрес отправления" autocomplete="off" />
+  <input type="text" id="delivery" placeholder="Адрес доставки" autocomplete="off" />
+  <input type="number" id="people" placeholder="Количество человек" min="1" max="10" />
+  <input type="tel" id="phone" placeholder="Телефон +998..." autocomplete="off" />
+  <button class="btn" onclick="sendOrder()">Заказать</button>
+  <div id="message"></div>
 </div>
 
-<div class="form-group">
-  <label for="passengers">Количество пассажиров:</label>
-  <select id="passengers">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4+</option>
-  </select>
-</div>
-
-<div class="form-group">
-  <label for="phone">Номер телефона:</label>
-  <input type="tel" id="phone" placeholder="+7XXXXXXXXXX">
-</div>
-
-<button id="orderBtn">Заказать</button>
-
-<script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script>
-  const tg = window.Telegram.WebApp;
-  tg.expand(); // Разворачиваем WebApp на весь экран
+  const BOT_TOKEN = 'ВАШ_ТОКЕН_БОТА';
+  const CHAT_ID = 'ВАШ_CHAT_ID';
 
-  document.getElementById('orderBtn').addEventListener('click', () => {
-    const destination = document.getElementById('destination').value.trim();
-    const passengers = document.getElementById('passengers').value;
+  function sendOrder() {
+    const pickup = document.getElementById('pickup').value.trim();
+    const delivery = document.getElementById('delivery').value.trim();
+    const people = document.getElementById('people').value.trim();
     const phone = document.getElementById('phone').value.trim();
+    const messageDiv = document.getElementById('message');
 
-    if (!destination || !phone) {
-      alert('Пожалуйста, заполните все поля!');
+    messageDiv.textContent = '';
+    messageDiv.className = '';
+
+    if (!pickup || !delivery || !people || !phone) {
+      messageDiv.textContent = 'Пожалуйста, заполните все поля!';
+      messageDiv.className = 'error';
       return;
     }
 
-    tg.sendData(JSON.stringify({
-      destination,
-      passengers,
-      phone
-    }));
+    if (!phone.startsWith('+998') || phone.length < 13) {
+      messageDiv.textContent = 'Номер должен быть в формате +998...';
+      messageDiv.className = 'error';
+      return;
+    }
 
-    tg.close();
-  });
+    const text = `🚖 Новый заказ такси!\n\n📍 Откуда: ${pickup}\n🏁 Куда: ${delivery}\n👥 Кол-во человек: ${people}\n📞 Телефон: ${phone}`;
+
+    fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        chat_id: CHAT_ID,
+        text: text,
+        parse_mode: 'HTML'
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+      if(data.ok) {
+        messageDiv.textContent = 'Ваш заказ отправлен!';
+        messageDiv.className = 'success';
+        document.getElementById('pickup').value = '';
+        document.getElementById('delivery').value = '';
+        document.getElementById('people').value = '';
+        document.getElementById('phone').value = '';
+      } else {
+        messageDiv.textContent = 'Ошибка при отправке. Попробуйте ещё раз.';
+        messageDiv.className = 'error';
+      }
+    })
+    .catch(() => {
+      messageDiv.textContent = 'Ошибка сети. Попробуйте позже.';
+      messageDiv.className = 'error';
+    });
+  }
 </script>
 
 </body>
