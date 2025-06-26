@@ -72,7 +72,7 @@ function renderHistory() {
 
 // Отправка заказа через fetch (пример отправки в телеграм-бота)
 async function sendOrder(pickup, delivery, passengers) {
-  const url = 'https://example.com/your-endpoint'; // Твой URL куда отправлять
+  const url = 'https://t.me/piar_group_chatt'; // Твой URL куда отправлять
   const body = {
     pickup,
     delivery,
