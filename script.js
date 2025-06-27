@@ -4,7 +4,7 @@ const CHAT_ID = '@javascriptprocets';
 
 const form = document.getElementById('orderForm');
 const successMsg = document.getElementById('successMsg');
-
+ 
 form.addEventListener('submit', function(e) {
   e.preventDefault();
 
@@ -20,7 +20,7 @@ form.addEventListener('submit', function(e) {
     return;
   }
 
-  const message = `🚕 Yangi taksi buyurtmasi!\n\n📞 Telefon: ${phone}\n📍 Qayerdan: ${from}\n📍 Qayerga: ${to}';
+  const message = `🚕 Yangi taksi buyurtmasi!\n\n📞 Telefon: ${phone}\n📍 Qayerdan: ${from}\n📍 Qayerga: ${to}\n🎟 Promokod: ${promo || "Kiritilmagan"}`;
 
   fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
     method: 'POST',
