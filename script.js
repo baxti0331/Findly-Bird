@@ -1,5 +1,5 @@
 // ВСТАВЬ свои значения!
-const BOT_TOKEN = '7563958637:AAFYZAnO9GnqrV6mDxdzQS8qU3N020KUVlU';
+const BOT_TOKEN = '7622026084:AAFUy3d8unjjJlNRT9ZFtUq_b_SO4lZT7mY';
 const CHAT_ID = '@javascriptprocets';
 
 const form = document.getElementById('orderForm');
