@@ -2,40 +2,65 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
+  <title>Findly Taxi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Такси Заказ</title>
-  <link href="style.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="taxi-bg">
-  <header>
-    <h1>Закажи такси Findly!</h1>
-  </header>
-  <section class="order-form-section">
-    <form class="order-form" id="orderForm">
-      <label>
-        Имя пассажира:
-        <input type="text" name="name" required>
-      </label>
-      <label>
-        Телефон:
-        <input type="tel" name="phone" pattern="\+?\d{10,15}" required placeholder="+79991234567">
-      </label>
-      <label>
-        Откуда:
-        <input type="text" name="from" required>
-      </label>
-      <label>
-        Куда:
-        <input type="text" name="to" required>
-      </label>
-      <button type="submit">Заказать такси</button>
-    </form>
-    <div id="successMsg" class="success-msg" style="display:none;">
-      Ваш заказ принят! Ожидайте машину.
+  <div class="taxi-bg">
+    <div class="slider-container">
+      <div class="slider" id="slider">
+        <div class="slide active">
+          <img src="https://i.imgur.com/gzR3hYB.jpg" alt="Такси быстро и удобно">
+          <div class="slide-caption">Быстро и удобно — ваш комфорт наш приоритет!</div>
+        </div>
+        <div class="slide">
+          <img src="https://i.imgur.com/2nCt3Sbl.jpg" alt="Лучшие цены">
+          <div class="slide-caption">Лучшая цена в городе — попробуйте наш сервис!</div>
+        </div>
+        <div class="slide">
+          <img src="https://i.imgur.com/Jt6z6eK.jpg" alt="24/7">
+          <div class="slide-caption">Работаем 24/7 — всегда рядом, когда вы нужны!</div>
+        </div>
+      </div>
+      <div class="slider-controls">
+        <button class="slider-btn" id="prevBtn">&#10094;</button>
+        <button class="slider-btn" id="nextBtn">&#10095;</button>
+      </div>
     </div>
-  </section>
-</div>
-<script src="script.js"></script>
+
+    <div class="banner">
+      🎉 Скидка 20% новым клиентам! Промокод: FINDLY20
+    </div>
+
+    <header>
+      <h1>Закажи такси Findly!</h1>
+    </header>
+    <section class="order-form-section">
+      <form class="order-form" id="orderForm">
+        <label>
+          Имя пассажира:
+          <input type="text" name="name" required>
+        </label>
+        <label>
+          Телефон:
+          <input type="tel" name="phone" pattern="\+?\d{10,15}" required placeholder="+79991234567">
+        </label>
+        <label>
+          Откуда:
+          <input type="text" name="from" required>
+        </label>
+        <label>
+          Куда:
+          <input type="text" name="to" required>
+        </label>
+        <button type="submit">Заказать такси</button>
+      </form>
+      <div id="successMsg" class="success-msg" style="display:none;">
+        Ваш заказ принят! Ожидайте машину.
+      </div>
+    </section>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
