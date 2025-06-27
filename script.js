@@ -8,7 +8,6 @@ const successMsg = document.getElementById('successMsg');
 form.addEventListener('submit', function(e) {
   e.preventDefault();
 
-  const name = form.name.value.trim();
   const phone = form.phone.value.trim();
   const from = form.from.value.trim();
   const to = form.to.value.trim();
