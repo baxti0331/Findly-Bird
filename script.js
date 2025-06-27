@@ -1,6 +1,6 @@
-// ВСТАВЬ сюда свои реальные значения
-const BOT_TOKEN = '7563958637:AAFYZAnO9GnqrV6mDxdzQS8qU3N020KUVlU';
-const CHAT_ID = '@javascriptprocets';
+// ВСТАВЬ свои значения!
+const BOT_TOKEN = 'ВАШ_ТЕЛЕГРАМ_БОТ_ТОКЕН';
+const CHAT_ID = 'ВАШ_CHAT_ID';
 
 const form = document.getElementById('orderForm');
 const successMsg = document.getElementById('successMsg');
@@ -45,3 +45,32 @@ form.addEventListener('submit', function(e) {
     alert('Сетевая ошибка: ' + err);
   });
 });
+
+/* Слайдер */
+const slides = document.querySelectorAll('.slide');
+let currentSlide = 0;
+const totalSlides = slides.length;
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === index);
+  });
+}
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % totalSlides;
+  showSlide(currentSlide);
+}
+function prevSlide() {
+  currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+  showSlide(currentSlide);
+}
+nextBtn.addEventListener('click', nextSlide);
+prevBtn.addEventListener('click', prevSlide);
+
+// Автослайд
+setInterval(nextSlide, 5000);
+
+// Показать первый слайд
+showSlide(currentSlide);
