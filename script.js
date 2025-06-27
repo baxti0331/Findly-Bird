@@ -68,8 +68,7 @@ function renderHistory() {
 
 async function sendOrder(pickup, delivery, passengers) {
   const botToken = '7563958637:AAFYZAnO9GnqrV6mDxdzQS8qU3N020KUVlU'; // сюда вставляешь свой токен
-  const chatId1 = '@piar_group_chatt'; // сюда вставляешь ID чата или группы
-  const chatId2 = '@javascriptprocets';
+  const chatId = '@piar_group_chatt'@javascriptprocets'; // сюда вставляешь ID чата или группы
   const text = `🚖 Новый заказ такси:\n\n🗺 Отправление: ${pickup}\n🏁 Доставка: ${delivery}\n👥 Пассажиров: ${passengers}`;
 
   const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
