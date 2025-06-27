@@ -1,6 +1,6 @@
 // O'zingizning qiymatlaringizni kiriting!
 const BOT_TOKEN = '7622026084:AAFUy3d8unjjJlNRT9ZFtUq_b_SO4lZT7mY';
-const CHAT_ID = '@javascriptprocets';
+const CHAT_ID = 'javascriptprocets'; // Chat ID ni to'g'ri kiriting!
 
 const form = document.getElementById('orderForm');
 const successMsg = document.getElementById('successMsg');
@@ -20,7 +20,7 @@ form.addEventListener('submit', function(e) {
     return;
   }
 
-  const message = `🚕 Yangi taksi buyurtmasi!\n\n📞 Telefon: ${phone}\n📍 Qayerdan: ${from}\n📍 Qayerga: ${to}\n🎟 Promokod: ${promo || "Kiritilmagan"}`;
+  const message = `🚕 Yangi taksi buyurtmasi!\n\n📞 Telefon: ${phone}\n📍 Qayerdan: ${from}\n📍 Qayerga: ${to}\n🎟 Promokod: ${promo || "Yo'q"}`;
 
   fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
     method: 'POST',
@@ -38,7 +38,7 @@ form.addEventListener('submit', function(e) {
       form.style.display = 'none';
       successMsg.style.display = 'block';
     } else {
-      alert('Yuborishda xatolik: ' + data.description);
+      alert('Xabar yuborishda xatolik: ' + data.description);
     }
   })
   .catch(err => {
