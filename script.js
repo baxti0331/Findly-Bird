@@ -73,4 +73,4 @@ prevBtn.addEventListener('click', prevSlide);
 setInterval(nextSlide, 5000);
 
 // Birinchi slaydni ko‘rsatish
-showSlide(currentSlide);
+showSlide(currentSlide); 
