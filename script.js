@@ -1,6 +1,6 @@
 // ВСТАВЬ свои значения!
 const BOT_TOKEN = '7563958637:AAFYZAnO9GnqrV6mDxdzQS8qU3N020KUVlU';
-const CHAT_ID = '7794270699';
+const CHAT_ID = '@javascriptprocets';
 
 const form = document.getElementById('orderForm');
 const successMsg = document.getElementById('successMsg');
