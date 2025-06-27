@@ -15,7 +15,7 @@ form.addEventListener('submit', function(e) {
   const phonePattern = /^\+?\d{10,15}$/;
 
   if (!phonePattern.test(phone)) {
-    alert('Пожалуйста, введите корректный номер телефона (пример: +79991234567)');
+    alert('Пожалуйста, введите корректный номер телефона (пример: +998123456789)');
     form.phone.focus();
     return;
   }
