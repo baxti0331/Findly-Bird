@@ -4,7 +4,7 @@ const CHAT_ID = '@javascriptprocets';
 
 const form = document.getElementById('orderForm');
 const successMsg = document.getElementById('successMsg');
- 
+
 form.addEventListener('submit', function(e) {
   e.preventDefault();
 
