@@ -2,9 +2,8 @@
 <html lang="uz">
 <head>
   <meta charset="UTF-8">
-  <title>Findly Taxi — Onlayn taksi buyurtma qilish</title>
+  <title>Tezkor Taxi — Onlayn buyurtma</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google Fonts'dan chiroyli shriftlar -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -13,16 +12,16 @@
     <div class="slider-container">
       <div class="slider" id="slider">
         <div class="slide active">
-          <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=800&q=80" alt="Quvnoq salon">
+          <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=800&q=80" alt="Qulay salon">
           <div class="slide-caption">Tezkor Taxi — har bir safarda qulaylik va uslub!</div>
         </div>
         <div class="slide">
-          <img src="https://images.unsplash.com/photo-1461632830798-3adb3034e4c8?auto=format&fit=crop&w=800&q=80" alt="Tez taksi">
-          <div class="slide-caption">Avtomobilni tezda chaqirish — atigi 5 daqiqa kutish!</div>
+          <img src="https://images.unsplash.com/photo-1461632830798-3adb3034e4c8?auto=format&fit=crop&w=800&q=80" alt="Tez taxi">
+          <div class="slide-caption">Mashina chaqiruvi — atigi 5 daqiqa kutish!</div>
         </div>
         <div class="slide">
-         <img src="https://images.pexels.com/photos/358070/pexels-photo-358070.jpeg?auto=compress&w=800" alt="24/7 ishlaymiz">
-<div class="slide-caption">24/7 ishlaymiz — sizga kerak paytda yoningizdamiz!</div>
+          <img src="https://images.pexels.com/photos/358070/pexels-photo-358070.jpeg?auto=compress&w=800" alt="24/7 ishlaymiz">
+          <div class="slide-caption">24/7 ishlaymiz — kerak bo‘lsa, biz yoningizdamiz!</div>
         </div>
       </div>
       <div class="slider-controls">
@@ -32,19 +31,19 @@
     </div>
 
     <div class="banner">
-      🚖 <b>Yangi mijozlarga 20% chegirma!</b>&nbsp; Promo-kod: <span class="banner-promo">Tezkor20</span>
+      🚖 <b>Yangi mijozlarga 20% chegirma!</b>&nbsp; Promokod: <span class="banner-promo">Tezkor20</span>
     </div>
 
     <header>
-      <img src="https://img.icons8.com/ios-filled/100/ffd600/taxi.png" alt="Findly Taxi Logosi" class="taxi-logo">
-      <h1>TAXI TEZKOR!</h1>
-      <p class="subtitle">Tez. Foydali. Uslubli.</p>
+      <img src="https://img.icons8.com/ios-filled/100/ffd600/taxi.png" alt="Tezkor Taxi Logotip" class="taxi-logo">
+      <h1>TEZKOR TAXI!</h1>
+      <p class="subtitle">Tez. Arzon. Zamonaviy.</p>
     </header>
 
     <section class="order-form-section">
       <form class="order-form" id="orderForm">
         <label>
-          Telefon:
+          Telefon raqami:
           <input type="tel" name="phone" pattern="\+?\d{10,15}" required placeholder="+998" autocomplete="off">
         </label>
         <label>
@@ -55,13 +54,14 @@
           Qayerga:
           <input type="text" name="to" required autocomplete="off">
         </label>
-        Promokod:
-      <input type="text" name="promo" placeholder="" autocomplete="off">
-    </label>
-        <button type="submit">Taksi buyurtma qilish</button>
+        <label>
+          Promokod:
+          <input type="text" name="promo" placeholder="Agar mavjud bo‘lsa" autocomplete="off">
+        </label>
+        <button type="submit">Taxi chaqirish</button>
       </form>
       <div id="successMsg" class="success-msg" style="display:none;">
-        Buyurtmangiz qabul qilindi! 🚕 Yo'ldamiz.
+        Buyurtmangiz qabul qilindi! 🚕 Yo‘lda ketyapmiz.
       </div>
     </section>
   </div>
