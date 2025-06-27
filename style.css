@@ -1,12 +1,24 @@
+:root {
+  --yellow: #ffd600;
+  --black: #181818;
+  --gray: #fafaf9;
+  --accent: #212121;
+  --white: #fff;
+  --banner-gradient: linear-gradient(90deg, #ffd600 50%, #212121 100%);
+  --font-title: 'Montserrat', Arial, sans-serif;
+  --font-main: 'Roboto', Arial, sans-serif;
+}
+
 body, html {
   height: 100%;
   margin: 0;
-  font-family: 'Segoe UI', Arial, sans-serif;
+  font-family: var(--font-main);
+  background: var(--gray);
 }
 
 .taxi-bg {
   min-height: 100vh;
-  background: linear-gradient(135deg, #FFD600 60%, #333 100%);
+  background: linear-gradient(137deg, var(--yellow) 70%, var(--black) 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,18 +27,18 @@ body, html {
 
 .slider-container {
   width: 100%;
-  max-width: 600px;
-  margin-top: 20px;
+  max-width: 700px;
+  margin-top: 26px;
   position: relative;
 }
 
 .slider {
   position: relative;
   width: 100%;
-  height: 220px;
+  height: 250px;
   overflow: hidden;
-  border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  border-radius: 22px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.14);
 }
 
 .slide {
@@ -43,20 +55,23 @@ body, html {
 
 .slide img {
   width: 100%;
-  height: 220px;
+  height: 250px;
   object-fit: cover;
-  border-radius: 16px;
+  border-radius: 22px;
 }
 
 .slide-caption {
   position: absolute;
   left: 0; right: 0; bottom: 0;
-  padding: 16px;
-  background: rgba(0,0,0,0.5);
-  color: #FFD600;
-  font-size: 1.2em;
-  border-radius: 0 0 16px 16px;
-  text-align: center;
+  padding: 18px 18px 18px 24px;
+  background: rgba(24,24,24,0.7);
+  color: var(--yellow);
+  font-family: var(--font-title);
+  font-size: 1.25em;
+  border-radius: 0 0 22px 22px;
+  text-align: left;
+  letter-spacing: 1px;
+  font-weight: 600;
 }
 
 .slider-controls {
@@ -71,127 +86,169 @@ body, html {
 
 .slider-btn {
   background: rgba(33,33,33,0.7);
-  color: #FFD600;
+  color: var(--yellow);
   border: none;
   font-size: 2em;
   border-radius: 50%;
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   cursor: pointer;
   pointer-events: auto;
-  transition: background 0.2s;
+  transition: background 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .slider-btn:hover {
-  background: #FFD600;
-  color: #222;
+  background: var(--yellow);
+  color: var(--black);
 }
 
 .banner {
   width: 100%;
-  max-width: 600px;
-  margin: 16px auto 0 auto;
-  background: linear-gradient(90deg, #222, #FFD600 80%);
-  color: #fff;
-  font-weight: bold;
-  font-size: 1.12em;
+  max-width: 700px;
+  margin: 18px auto 0 auto;
+  background: var(--banner-gradient);
+  color: var(--accent);
+  font-family: var(--font-title);
+  font-size: 1.18em;
   text-align: center;
-  padding: 14px 0;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.13);
+  padding: 16px 0 13px 0;
+  border-radius: 14px;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.11);
   letter-spacing: 1px;
+  font-weight: 700;
 }
-
+.banner-promo {
+  color: #fff;
+  background: #181818;
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-family: var(--font-title);
+  margin-left: 3px;
+}
 header {
-  margin: 20px 0 12px 0;
+  margin: 24px 0 14px 0;
+  text-align: center;
 }
 
+.taxi-logo {
+  width: 64px;
+  margin-bottom: 6px;
+  filter: drop-shadow(2px 2px 0 #ffe066) drop-shadow(0 0 4px #fff7);
+}
 header h1 {
-  color: #212121;
-  font-size: 2.3em;
-  text-shadow: 2px 2px 0 #fff700, 4px 4px 0 #000;
+  color: var(--accent);
+  font-family: var(--font-title);
+  font-size: 2.2em;
+  text-shadow: 2px 2px 0 #fff700, 5px 5px 0 #2221;
   letter-spacing: 2px;
+  margin: 0 0 7px 0;
+}
+.subtitle {
+  margin: 0 0 4px 0;
+  color: #2229;
+  font-family: var(--font-main);
+  font-weight: 500;
+  font-size: 1.04em;
+  letter-spacing: 0.5px;
 }
 
 .order-form-section {
-  background: rgba(255,255,255,0.95);
-  border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
-  padding: 32px 24px 24px 24px;
+  background: rgba(255,255,255,0.97);
+  border-radius: 19px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+  padding: 36px 30px 26px 30px;
   min-width: 340px;
   max-width: 95vw;
-  margin-bottom: 40px;
+  margin-bottom: 44px;
+  margin-top: 6px;
 }
 
 .order-form label {
   display: block;
-  margin-bottom: 18px;
-  color: #212121;
-  font-weight: 500;
-  font-size: 1.13em;
+  margin-bottom: 22px;
+  color: var(--accent);
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: 1.12em;
+  letter-spacing: 0.5px;
 }
 
 .order-form input[type="text"],
 .order-form input[type="tel"] {
   width: 97%;
-  padding: 8px 10px;
-  border: 2px solid #FFD600;
+  padding: 11px 13px;
+  border: 2px solid var(--yellow);
   border-radius: 8px;
-  font-size: 1em;
-  margin-top: 4px;
+  font-size: 1.06em;
+  font-family: var(--font-main);
+  margin-top: 5px;
   transition: border 0.2s;
+  background: #fffefc;
+  box-shadow: 0 1px 2px #ffd60022;
 }
 
 .order-form input:focus {
-  border: 2px solid #333;
+  border: 2px solid var(--accent);
   outline: none;
 }
 
 .order-form button {
   width: 100%;
-  padding: 12px;
-  background: linear-gradient(90deg, #FFD600 80%, #444 100%);
-  color: #222;
-  font-weight: bold;
-  font-size: 1.1em;
+  padding: 14px;
+  background: linear-gradient(90deg, var(--yellow) 85%, var(--black) 100%);
+  color: var(--black);
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 1.15em;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.14);
-  margin-top: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+  margin-top: 18px;
   transition: background 0.25s, color 0.25s;
+  letter-spacing: 1px;
 }
 
 .order-form button:hover {
-  background: linear-gradient(90deg, #fff700 60%, #222 100%);
+  background: linear-gradient(90deg, #ffe733 60%, #222 100%);
   color: #fff;
 }
 
 .success-msg {
-  color: #388e3c;
-  margin-top: 18px;
+  color: #36a24b;
+  margin-top: 22px;
   font-weight: bold;
+  font-size: 1.2em;
   text-align: center;
+  font-family: var(--font-title);
 }
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
   .slider-container, .banner {
-    max-width: 98vw;
+    max-width: 99vw;
   }
   .slider {
-    height: 150px;
+    height: 170px;
   }
   .slide img {
-    height: 150px;
+    height: 170px;
   }
 }
-
 @media (max-width: 500px) {
   .order-form-section {
     min-width: unset;
-    padding: 18px 6vw;
+    padding: 18px 4vw;
   }
   header h1 {
-    font-size: 1.3em;
+    font-size: 1.2em;
+  }
+  .slider {
+    height: 110px;
+  }
+  .slide img {
+    height: 110px;
   }
 }
 @keyframes fadeIn {
