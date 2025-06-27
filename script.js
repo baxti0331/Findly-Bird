@@ -20,7 +20,7 @@ form.addEventListener('submit', function(e) {
     return;
   }
 
-  const message = `🚕 Yangi taksi buyurtmasi!\n\n👤 Ism: ${name}\n📞 Telefon: ${phone}\n📍 Qayerdan: ${from}\n📍 Qayerga: ${to}`;
+  const message = `🚕 Yangi taksi buyurtmasi!\n\n📞 Telefon: ${phone}\n📍 Qayerdan: ${from}\n📍 Qayerga: ${to}`;
 
   fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
     method: 'POST',
