@@ -1,34 +1,41 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Такси Заказ</title>
-    <link href="style.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Такси Заказ</title>
+  <link href="style.css" rel="stylesheet">
 </head>
 <body>
-
-<div class="app-container">
-    <h1>🚖 Вызов Такси</h1>
-
-    <div class="form-group">
-        <input type="text" id="pickup" placeholder="Адрес отправления">
+<div class="taxi-bg">
+  <header>
+    <h1>Закажи такси Findly!</h1>
+  </header>
+  <section class="order-form-section">
+    <form class="order-form" id="orderForm">
+      <label>
+        Имя пассажира:
+        <input type="text" name="name" required>
+      </label>
+      <label>
+        Телефон:
+        <input type="tel" name="phone" pattern="\+?\d{10,15}" required placeholder="+79991234567">
+      </label>
+      <label>
+        Откуда:
+        <input type="text" name="from" required>
+      </label>
+      <label>
+        Куда:
+        <input type="text" name="to" required>
+      </label>
+      <button type="submit">Заказать такси</button>
+    </form>
+    <div id="successMsg" class="success-msg" style="display:none;">
+      Ваш заказ принят! Ожидайте машину.
     </div>
-    <div class="form-group">
-        <input type="text" id="delivery" placeholder="Адрес доставки">
-    </div>
-    <div class="form-group">
-        <input type="number" id="passengers" placeholder="Количество пассажиров">
-    </div>
-    <button id="orderBtn">Заказать</button>
-    <div id="message" class="message"></div>
-
-    <div id="historySection" class="history-section">
-        <h2>История заказов</h2>
-        <ul id="historyList"></ul>
-    </div>
+  </section>
 </div>
-
 <script src="script.js"></script>
 </body>
 </html>
