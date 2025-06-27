@@ -1,120 +1,95 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #FFD700, #FFA500);
-    height: 100vh;
-    overflow-y: auto;
+.taxi-bg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #FFD600 60%, #333 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.app-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    margin-top: 30px;
-    margin-bottom: 30px;
+header {
+  margin-bottom: 40px;
 }
 
-h1 {
-    text-align: center;
-    margin-bottom: 25px;
+header h1 {
+  color: #212121;
+  font-size: 2.5em;
+  text-shadow: 2px 2px 0 #fff700, 4px 4px 0 #000;
+  letter-spacing: 2px;
 }
 
-.form-group {
-    margin-bottom: 15px;
+.order-form-section {
+  background: rgba(255,255,255,0.95);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  padding: 32px 24px 24px 24px;
+  min-width: 340px;
+  max-width: 95vw;
 }
 
-input {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    font-size: 16px;
-    transition: border-color 0.3s;
+.order-form label {
+  display: block;
+  margin-bottom: 18px;
+  color: #212121;
+  font-weight: 500;
+  font-size: 1.13em;
 }
 
-input:focus {
-    border-color: #FF8C00;
-    outline: none;
+.order-form input[type="text"],
+.order-form input[type="tel"] {
+  width: 97%;
+  padding: 8px 10px;
+  border: 2px solid #FFD600;
+  border-radius: 8px;
+  font-size: 1em;
+  margin-top: 4px;
+  transition: border 0.2s;
 }
 
-button {
-    width: 100%;
-    padding: 14px;
-    background-color: #FF8C00;
-    border: none;
-    color: white;
-    font-size: 18px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+.order-form input:focus {
+  border: 2px solid #333;
+  outline: none;
 }
 
-button:hover {
-    background-color: #e67600;
+.order-form button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #FFD600 80%, #444 100%);
+  color: #222;
+  font-weight: bold;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.14);
+  margin-top: 16px;
+  transition: background 0.25s, color 0.25s;
 }
 
-.message {
-    margin-top: 15px;
-    text-align: center;
-    font-size: 14px;
+.order-form button:hover {
+  background: linear-gradient(90deg, #fff700 60%, #222 100%);
+  color: #fff;
 }
 
-.message.success {
-    color: green;
+.success-msg {
+  color: #388e3c;
+  margin-top: 18px;
+  font-weight: bold;
+  text-align: center;
 }
 
-.message.error {
-    color: red;
-}
-
-.history-section {
-    margin-top: 30px;
-    display: none;
-}
-
-.history-section.show {
-    display: block;
-}
-
-#historyList {
-    list-style: none;
-    padding: 0;
-    margin-top: 15px;
-}
-
-.history-item {
-    background: #fff3cd;
-    border: 1px solid #ffeeba;
-    border-radius: 8px;
-    padding: 12px;
-    margin-bottom: 10px;
-}
-
-.repeat-btn {
-    margin-top: 8px;
-    padding: 8px 12px;
-    background: #FF8C00;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.repeat-btn:hover {
-    background: #e67600;
-}
-
-@media (max-width: 480px) {
-    .app-container {
-        margin: 20px 15px;
-    }
+@media (max-width: 500px) {
+  .order-form-section {
+    min-width: unset;
+    padding: 18px 6vw;
+  }
+  header h1 {
+    font-size: 1.5em;
+  }
 }
