@@ -2,8 +2,10 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Findly Taxi</title>
+  <title>Findly Taxi — Заказ такси онлайн</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Красивые шрифты с Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,16 +13,16 @@
     <div class="slider-container">
       <div class="slider" id="slider">
         <div class="slide active">
-          <img src="https://i.imgur.com/gzR3hYB.jpg" alt="Такси быстро и удобно">
-          <div class="slide-caption">Быстро и удобно — ваш комфорт наш приоритет!</div>
+          <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=800&q=80" alt="Комфортный салон">
+          <div class="slide-caption">Findly Taxi — комфорт и стиль в каждой поездке!</div>
         </div>
         <div class="slide">
-          <img src="https://i.imgur.com/2nCt3Sbl.jpg" alt="Лучшие цены">
-          <div class="slide-caption">Лучшая цена в городе — попробуйте наш сервис!</div>
+          <img src="https://images.unsplash.com/photo-1461632830798-3adb3034e4c8?auto=format&fit=crop&w=800&q=80" alt="Быстрое такси">
+          <div class="slide-caption">Молниеносная подача авто — всего 5 минут ожидания!</div>
         </div>
         <div class="slide">
-          <img src="https://i.imgur.com/Jt6z6eK.jpg" alt="24/7">
-          <div class="slide-caption">Работаем 24/7 — всегда рядом, когда вы нужны!</div>
+          <img src="https://images.unsplash.com/photo-1511918984145-48de785d4c4e?auto=format&fit=crop&w=800&q=80" alt="Работаем 24/7">
+          <div class="slide-caption">Работаем 24/7 — мы рядом, когда вы нужны!</div>
         </div>
       </div>
       <div class="slider-controls">
@@ -30,34 +32,37 @@
     </div>
 
     <div class="banner">
-      🎉 Скидка 20% новым клиентам! Промокод: FINDLY20
+      🚖 <b>Скидка 20% новым клиентам!</b>&nbsp; Промокод: <span class="banner-promo">FINDLY20</span>
     </div>
 
     <header>
-      <h1>Закажи такси Findly!</h1>
+      <img src="https://img.icons8.com/ios-filled/100/ffd600/taxi.png" alt="Findly Taxi Logo" class="taxi-logo">
+      <h1>Закажи фирменное такси Findly!</h1>
+      <p class="subtitle">Быстро. Выгодно. Стильно.</p>
     </header>
+
     <section class="order-form-section">
       <form class="order-form" id="orderForm">
         <label>
           Имя пассажира:
-          <input type="text" name="name" required>
+          <input type="text" name="name" required autocomplete="off">
         </label>
         <label>
           Телефон:
-          <input type="tel" name="phone" pattern="\+?\d{10,15}" required placeholder="+79991234567">
+          <input type="tel" name="phone" pattern="\+?\d{10,15}" required placeholder="+79991234567" autocomplete="off">
         </label>
         <label>
           Откуда:
-          <input type="text" name="from" required>
+          <input type="text" name="from" required autocomplete="off">
         </label>
         <label>
           Куда:
-          <input type="text" name="to" required>
+          <input type="text" name="to" required autocomplete="off">
         </label>
         <button type="submit">Заказать такси</button>
       </form>
       <div id="successMsg" class="success-msg" style="display:none;">
-        Ваш заказ принят! Ожидайте машину.
+        Ваш заказ принят! 🚕 Мы уже в пути.
       </div>
     </section>
   </div>
