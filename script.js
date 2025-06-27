@@ -1,4 +1,4 @@
-// ВСТАВЬ свои значения!
+// O'zingizning qiymatlaringizni kiriting!
 const BOT_TOKEN = '7622026084:AAFUy3d8unjjJlNRT9ZFtUq_b_SO4lZT7mY';
 const CHAT_ID = '@javascriptprocets';
 
@@ -14,12 +14,12 @@ form.addEventListener('submit', function(e) {
   const phonePattern = /^\+?\d{10,15}$/;
 
   if (!phonePattern.test(phone)) {
-    alert('Пожалуйста, введите корректный номер телефона (пример: +998123456789)');
+    alert('Iltimos, to‘g‘ri telefon raqamini kiriting (masalan: +998123456789)');
     form.phone.focus();
     return;
   }
 
-  const message = `🚕 Новый заказ такси!\n\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n📍 Откуда: ${from}\n📍 Куда: ${to}`;
+  const message = `🚕 Yangi taksi buyurtmasi!\n\n👤 Ism: ${name}\n📞 Telefon: ${phone}\n📍 Qayerdan: ${from}\n📍 Qayerga: ${to}`;
 
   fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
     method: 'POST',
@@ -37,15 +37,15 @@ form.addEventListener('submit', function(e) {
       form.style.display = 'none';
       successMsg.style.display = 'block';
     } else {
-      alert('Ошибка отправки: ' + data.description);
+      alert('Yuborishda xatolik: ' + data.description);
     }
   })
   .catch(err => {
-    alert('Сетевая ошибка: ' + err);
+    alert('Tarmoq xatosi: ' + err);
   });
 });
 
-/* Слайдер */
+/* Slayder */
 const slides = document.querySelectorAll('.slide');
 let currentSlide = 0;
 const totalSlides = slides.length;
@@ -68,8 +68,8 @@ function prevSlide() {
 nextBtn.addEventListener('click', nextSlide);
 prevBtn.addEventListener('click', prevSlide);
 
-// Автослайд
+// Avtomatik slayder
 setInterval(nextSlide, 5000);
 
-// Показать первый слайд
+// Birinchi slaydni ko‘rsatish
 showSlide(currentSlide);
