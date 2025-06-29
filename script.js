@@ -1,6 +1,6 @@
 // O'zingizning qiymatlaringizni kiriting!
 const BOT_TOKEN = '7622026084:AAFUy3d8unjjJlNRT9ZFtUq_b_SO4lZT7mY';
-const CHAT_ID = 'javascriptprocets'; // Chat ID ni to'g'ri kiriting!
+const CHAT_ID = '@javascriptprocets'; // Добавил @ для username канала
 
 const form = document.getElementById('orderForm');
 const successMsg = document.getElementById('successMsg');
@@ -29,7 +29,8 @@ form.addEventListener('submit', function(e) {
     },
     body: JSON.stringify({
       chat_id: CHAT_ID,
-      text: message
+      text: message,
+      parse_mode: 'Markdown'
     })
   })
   .then(res => res.json())
@@ -69,8 +70,8 @@ function prevSlide() {
 nextBtn.addEventListener('click', nextSlide);
 prevBtn.addEventListener('click', prevSlide);
 
-// Avtomatik slayder
+// Автоматический слайдер
 setInterval(nextSlide, 5000);
 
-// Birinchi slaydni ko‘rsatish
-showSlide(currentSlide); 
+// Показать первый слайд сразу
+showSlide(currentSlide);
